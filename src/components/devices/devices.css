@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.devicesWindow {
+  width: 100vw;
+  height: 100vh;
+  background: #ff7143;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+.ring {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: transparent;
+  animation: animate0 8s linear infinite;
+}
+/* maximum of 8 circles */
+span {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
+  background: transparent;
+}
+span:before {
+  content: "";
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: white;
+  top: -6px;
+  right: -8px;
+}
+.text h1 {
+  font-size: 100px;
+  padding: 0;
+  margin: -40px 0px 0px 0px;
+  font-weight: 200;
+}
+.text p {
+  padding: 0;
+  margin-top: -16px;
+  line-height: 18px;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+.navbar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: #d86844;
+}
+.navbar button {
+  height: 40px;
+  width: 120px;
+  margin: 8px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+.navbar .notifybtn {
+  color: #434b5a;
+  border: 1px solid white;
+  background: white;
+}
+
+.navbar .logout {
+  color: white;
+  border: 1px solid #434b5a;
+  background: #434b5a;
+}
+
+.circle0 {
+  transform: rotate(0deg);
+}
+.circle1 {
+  transform: rotate(180deg);
+}
+.circle2 {
+  transform: rotate(270deg);
+}
+.circle3 {
+  transform: rotate(90deg);
+}
+.circle4 {
+  transform: rotate(45deg);
+}
+.circle5 {
+  transform: rotate(225deg);
+}
+.circle6 {
+  transform: rotate(315deg);
+}
+.circle7 {
+  transform: rotate(135deg);
+}
+
+@keyframes animate0 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
