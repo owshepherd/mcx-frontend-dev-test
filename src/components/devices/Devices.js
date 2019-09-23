@@ -30,28 +30,33 @@ class Devices extends Component {
   }
 
   notifyHandler = () => {
+    const header = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    };
     const text = {
-      headers: `Authorization: Bearer ${localStorage.getItem("token")}`,
       name: "Owen Shepherd",
       email: "owshepherd@gmail.com",
-      repoUrl: "",
+      repoUrl: "https://github.com/owshepherd/mcx-frontend-dev-test",
       message: "The ritual has been completed"
     };
     console.log(text);
 
     axios
-      .post("http://35.201.2.209:8000/notify", text)
+      .post("http://35.201.2.209:8000/notify", text, header)
       .then(res => {
-        console.log("200 Success: Alright, I won!");
         console.log(res.data);
+        console.log("200 Success: Alright, I won!");
       })
       .catch(err => {
-        if (err.res.status === 400) {
+        if (err.status === 400) {
           console.log(
             "400 Bad Request: your request was bad and you should feel bad."
           );
         }
-        if (err.res.status === 401) {
+        if (err.status === 401) {
           console.log("401 Unauthorised: you're not supposed to be here.");
         }
       });
@@ -83,7 +88,9 @@ class Devices extends Component {
         <div className="ring">{numberDisplay}</div>
 
         <div className="navbar">
-          <button className="notifybtn">Notify</button>
+          <button className="notifybtn" onClick={this.notifyHandler}>
+            Notify
+          </button>
           <button className="logout" onClick={this.logoutHandler}>
             Log Out
           </button>
